@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body {
+      padding: 2em;
+      font-family: sans-serif;
+      line-height: 1.7em;
+    }
+  </style>
+</head>
+<body>
+  <h2>Dates</h2>
+  <script>
+    var nowDate = new Date();
+    document.writeln("nowDate: " + nowDate + "<br>");
+
+    document.writeln("nowDate.toUTCString(): " + nowDate.toUTCString() + "<br>");
+
+    document.writeln("nowDate.toLocaleString(): " + nowDate.toLocaleString() + "<br>");
+    document.writeln("nowDate.toLocaleTimeString(): " + nowDate.toLocaleTimeString() + "<br>");
+    document.writeln("nowDate.toTimeString(): " + nowDate.toTimeString() + "<br>");
+
+    document.writeln("nowDate.toLocaleDateString(): " + nowDate.toLocaleDateString() + "<br>");
+    document.writeln("nowDate.toDateString(): " + nowDate.toDateString() + "<br>");
+
+    document.writeln("nowDate.getDay(): " + nowDate.getDay() + "<br>");
+    document.writeln("nowDate.getMonth(): " + nowDate.getMonth() + "<br>");
+    document.writeln("nowDate.getTime(): " + nowDate.getTime() + "<br>");
+    document.writeln("nowDate.getUTCDate(): " + nowDate.getUTCDate() + "<br>");
+    document.writeln("nowDate.getUTCDay(): " + nowDate.getUTCDay() + "<br>");
+
+  </script>
+</body>
+</html>

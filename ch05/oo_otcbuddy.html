@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>OOP OTC Buddy</title>
+</head>
+<body>
+  <h1>OTC Buddy</h1>
+
+  <script>
+    function OTC(truck, points, campaign, note, footernote) {
+      this.truck = truck || null;
+      this.points = points || null;
+      this.campaign = campaign || null;
+      this.note = note || null;
+      this.footernote = footernote || null;
+    }
+
+    var cosTruckCable_note = "Lorem ipsum dolor sit.";
+    var cosTruckCable_footernote = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus, quis, doloremque illum earum velit non rem eveniet sint asperiores dolorem, ea quos accusantium nesciunt placeat.";
+    var cosTruckCable = new OTC( null, '', 'SD205', cosTruckCable_note, cosTruckCable_footernote);
+    cosTruckCable.campaignNote = "Only use this campaign when going through the Shopping Cart";
+
+    var cosTruckHSD = new OTC('LK209', 'LP209');
+
+    console.log(cosTruckCable);
+    console.log(cosTruckCable.truck);
+    console.log(cosTruckCable.points);
+    console.log(cosTruckCable.campaign);
+    console.log(cosTruckCable.note);
+    console.log(cosTruckCable.footernote);
+    console.log(cosTruckCable.campaignNote);
+
+    console.log(cosTruckHSD);
+
+  </script>
+</body>
+</html>

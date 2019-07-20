@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>trycatch2</title>
+  <style>
+    body {background-color: #ccc; padding: 1em; }
+  </style>
+  <script>
+    function btnCalc_onclick() {
+      try {
+        if (window.top.trycatch1 == null) {
+          throw 'This page is not loaded within the correct frameset';
+        }
+
+        if (document.form1.txtNum1.value == 1) {
+          throw '!Please enter a value before you calculate its factorial';
+        }
+
+        if (isNaN(document.form1.txtNum1.value)) {
+          throw '!Please enter a valid number';
+        }
+
+        if (document.form1.txtNum1.value < 0) {
+          throw '!Please enter a positive number';
+        }
+
+        document.form1.txtNum1.valvue = window.parent.trycatch1(document.form1.txtNum1.value);
+      }
+
+      catch (ex) {
+        if (typeof(ex) == 'string') {
+          if (ex.charAt(0) == '!') {
+            alert(ex.substr(1));
+            document.form1.txtNum1.focus();
+            document.form1.txtNum1.select();
+          }
+          else {
+            alert(ex);
+          }
+        }
+        else {
+          alert('The following error occurred ' + ex.message);
+        }
+      }
+    }
+  </script>
+</head>
+<body>
+
+  <form action="" name="form1">
+    <input type="text" name="txtNum1" size="3" /> Factorial is
+
+    <input type="text" name="txtResult" size="25" />
+    <br>
+
+    <input type="button" value="Calculate Factorial" name="btnCalc" onclick="btnCalc_onclick">
+  </form>
+</body>
+</html>

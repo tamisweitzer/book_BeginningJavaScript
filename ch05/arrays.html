@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <h3>Variable scoping</h3>
+  <script>
+    var globalHi = 'i am global';
+
+    function scopedHi() {
+      var localHi = 'local hi';
+      globalHi2 = 'global hi 2 inside function';
+      return localHi;
+    }
+    scopedHi();
+    document.write(globalHi + "<br>");
+    document.write(globalHi2 + "<br>");
+    /*
+      Not including the var keyword will make a function global
+      even if you declare it inside of a function
+    */
+  </script>
+
+
+  <h3>Reference to memory addresses</h3>
+  <script>
+    var myRefArray = [0, 1, 2];
+    var mySecondRefArray = myRefArray;
+    myRefArray[0] = 100;
+    document.write(myRefArray[0]);
+  </script>
+
+
+  <h3>Copy by value </h3>
+  <script>
+    var myVar = 'ABC';
+    var mySecondVar = myVar;
+    document.write(myVar + " = myVar<br>");
+    document.write(mySecondVar + " = mySecondVar <br>");
+    myVar = 'DEF';
+    document.write(myVar + " = myVar<br>");
+    document.write(mySecondVar + "= mySecondVar <br>");
+  </script>
+
+
+  <h3>Object's properties</h3>
+  <script>
+    var names = ['Tami', 'Jeremy', 'Scott']
+    document.write("names: " + names + "<br>");
+    document.write("length: " + names.length + "<br>");
+    names[15] = 'Jason';
+    document.write("names: " + names + "<br>");
+    document.write("length: " + names.length + "<br>");
+    document.write((names.length = 10) + "<br>");
+    document.write(names + "<br>");  // truncates everything after 10th item
+
+    var strMyName = 'Tami S Sweitzer';
+    document.write('length is ' + strMyName.length + " <br>");
+  </script>
+
+
+  <h3>String method: indexOf()</h3>
+  <p>The string.indexOf('S') method looks for the first time an 's' is found in the string, and returns its index position. This method is case sensitive!</p>
+  <script>
+    document.write(strMyName.indexOf('S'));
+  </script>
+
+  <p>Using string.lastIndexOf('S') starts looking from the end of the string, again returning the position of the first index of a 's' that it finds. This method is case sensitive!</p>
+  <script>
+    document.write(strMyName.lastIndexOf('S'));
+  </script>
+
+
+  <h3>Counting occurrences</h3>
+  <script>
+    var myString = 'Welcome to Wrox books. The Wrox website is www.wrox.com. Visit the Wrox website today. Thanks for buying Wrox';
+    var foundAtPosition = 0;
+    var wroxCount = 0;
+
+    while (foundAtPosition != -1) {
+      foundAtPosition = myString.indexOf('Wrox', foundAtPosition);
+      if (foundAtPosition != -1) {
+        wroxCount++;
+        foundAtPosition++;
+      }
+    }
+    document.write('There are ' + wroxCount + " occurrences of the word Wrox<br>");
+  </script>
+
+
+  <h3>The string.substr() and string.substring() methods</h3>
+  <p>"Tami Sweitzer"</p>
+  <script>
+    var myName = "Tami Sweitzer"
+    // string.substring(startingIndex, characterAfterLastCharacterToCheck);
+    // by default, the method will search to the end of the string unless
+    // you tell it to stop sooner
+    document.write("myName.substr(0, 3) " + myName.substr(0, 6) + "<br>");
+
+    // string.substr(startingIndex, lengthOfCharactersToCut);
+    // By default, the method will cut all characters, starting with the startingIndex
+    // and will cut until the end of the string, unless you tell it to
+    // stop sooner
+    document.write("myName.substring(0,3) " + myName.substring(0, 6) + "<br>");
+  </script>
+
+
+  <h3>Using substr() and lastIndexOf() together to get a file name</h3>
+  <script>
+    var fileName = window.location.href;
+    document.write(fileName + "<br>");
+    fileName = fileName.substr(fileName.lastIndexOf('/') + 1);
+    document.write(fileName + "<br>");
+  </script>
+
+
+  <h3>The array.concat() method</h3>
+  <script>
+    var names = ["Jeremy", "Tami"];
+    var ages = [45, 49];
+    names = names.concat(ages)
+    document.write(names);
+  </script>
+
+
+  <h3>The slice() method</h3>
+  <script>
+    // array.slice(startingIndex, indexAfterLastItemToSlice);
+    document.write(names.slice(0, 1) + "<br>");  // Jeremy
+    document.write(names.slice(0, 2) + "<br>");  // Jeremy,Tami
+  </script>
+
+
+  <h3>The array.join() method to join elements of an array into a string</h3>
+  <script>
+    var joinStr = names.join(', ');
+    document.write(joinStr);
+  </script>
+
+
+  <h3>The array.sort() method for sorting an array</h3>
+  <script>
+    document.write(names.sort() + "<br>");
+    document.write(names + "<br>");
+  </script>
+
+
+  <h3>The array.reverse() method sorts the array in descending order</h3>
+  <script>
+    var reverseArray = ['a', 'c', 'r', 'i', 'a', 'd'];
+    // Reverses the elements as they appear in the list
+    document.write(reverseArray.reverse() + "<br>");
+    // Sorts the list into ascending order
+    document.write(reverseArray.sort() + "<br>");
+    // Sorts the sorted list into descending order
+    document.write(reverseArray.reverse() + "<br>");
+  </script>
+
+
+  <h3>The array.indexOf() and array.lastIndexOf() methods</h3>
+  <script>
+    var colors = ['red', 'blue', 'green', 'blue'];
+    document.write(colors.indexOf('red') + "<br>");  // 0
+    document.write(colors.lastIndexOf('blue') + "<br>"); // 3
+  </script>
+
+
+  <h2>Iterative Functions</h2>
+
+  <h3>The array.every() method</h3>
+  <script>
+    /*
+      These functions follow the formula:
+
+      function f(value, index, array) {
+        // do something
+      }
+     */
+
+    var nums = [1, 2, 3, 4, 5];
+    function isLessThan3(value, index, array) {
+      var returnValue = false;
+      if (value < 3) {
+        returnValue = true;
+      }
+      return returnValue;
+    }
+
+    // More concise way to write it
+    function isLessThan3(value, index, array) {
+      return (value < 3);
+    }
+
+    document.write(nums.every(isLessThan3) + "<br>");  // true if ALL are true
+    document.write(nums.some(isLessThan3) + "<br>")  // true if ANY are true
+    document.write(nums.filter(isLessThan3) + "<br>")  // filters out ANY elements that are true
+  </script>
+
+
+  <h3>The array.forEach() and array.map() methods</h3>
+  <script>
+    var nums2 = [1, 2, 3, 4, 5];
+    for (var i = 0; i < nums2.length; i++) {
+      var result = nums2[i] * 2;
+      document.write(result + "<br>");
+    }
+  </script>
+
+  <h3>The .forEach() passing in doubleAndAlert() </h3>
+  <script>
+    function doubleAndAlert(value, index, array) {
+      var result = value * 2;
+      document.writeln(result);
+    }
+    nums.forEach(doubleAndAlert);
+    document.writeln("<br>");
+
+    var doubledNumbers =  nums.map(doubleAndAlert);
+    document.writeln(doubledNumbers + "<br>");
+  </script>
+
+  <div style="margin-top: 3em; border: 1px solid #eee;">..........</div>
+</body>
+</html>

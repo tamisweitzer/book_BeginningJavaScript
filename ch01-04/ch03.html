@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        padding: 2em;
+      }
+    </style>
+</head>
+<body>
+    <script>
+        // scope
+        var globalVar = "I am global";
+
+        function f() {
+             var localVar = "I am local to f()";
+            return localVar;
+        }
+        console.log(globalVar);
+        console.log(f());
+    </script>
+
+    <h2>Exercises</h2>
+
+    <h3>Ex 2</h3>
+    <script>
+      document.write("document.write");
+      document.write("document.write", "second argument");
+
+      document.writeln("document.writeln");  // writeln used to add a newline character
+      document.writeln("document.writeln <br>");  // but it does not appear to work any longer
+
+      document.writeln("<br>");
+      document.writeln("12*1 = 12<br>");
+      document.writeln("12*2 = 24<br>");
+      document.writeln("12*3 = 36<br>");
+      document.writeln("12*4 = 48<br><br>");
+
+      function multiplier(multipler, length) {
+        for (var i = 1; i <= length; i++) {
+          var sum = i * multipler;
+          document.writeln(multipler + "*" + i + "=" + sum +"<br>");
+        }
+      }
+      multiplier(12, 9)
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ch 4 Debug the Call Stack</title>
+</head>
+<body>
+  <button onclick="return btnOnClick()">Click me</button>
+
+  <script>
+    function firstCall() {
+      document.write("I am firstCall(), calling secondCall() now<br>");
+      secondCall();
+      return ("firstCall done");
+    }
+
+    function secondCall() {
+      document.write("I am secondCall(). Calling thirdCall() now<br>");
+      thirdCall();
+      return ("secondCall done");
+    }
+
+    function thirdCall() {
+      document.write("I am thirdCall()<br>");
+      return ("thirdCall done");
+    }
+
+    function btnOnClick() {
+      //debugger;
+      firstCall();
+    }
+  </script>
+</body>
+</html>
