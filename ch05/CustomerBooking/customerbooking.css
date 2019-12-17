@@ -1,0 +1,33 @@
+
+* {
+  padding:0px;
+  margin: 0px;
+}
+
+.header {
+  border: 1px solid #eee;
+  padding: 1em;
+  height: 30px;
+}
+
+.main {
+  border: 1px solid #eee;
+  padding: 1em;
+  /*height: calc(100vh - 300px);*/
+}
+
+.footer {
+  border: 1px solid #eee;
+  padding: 1em;
+  height: 200px;
+}
+
+
+
+.table {
+  border: 1px solid #eee;
+}
+.table th, .table td {
+  border: 1px solid #ddd;
+  padding: 1em;
+}
